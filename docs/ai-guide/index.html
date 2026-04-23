@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Guide — 开源 AI 知识导航</title>
+    <meta name="description" content="AI Guide — 开源 AI 知识导航：精选资源、路线图、更新日志与增长趋势。" />
+    <meta property="og:title" content="AI Guide — 开源 AI 知识导航" />
+    <meta property="og:description" content="精选资源、路线图、更新日志与增长趋势，关注开源 ai-guide 项目。" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <header class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+      <div class="container mx-auto px-6 py-8 flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <div class="w-10 h-10 bg-white rounded-md flex items-center justify-center text-indigo-600 font-bold">AI</div>
+          <div>
+            <h1 class="text-2xl font-semibold">AI Guide</h1>
+            <p class="text-sm opacity-90">开源 AI 知识导航 · 摘要 · 路线图 · 更新</p>
+          </div>
+        </div>
+        <nav class="space-x-4">
+          <a class="hover:underline" href="#features">精选内容</a>
+          <a class="hover:underline" href="#roadmap">路线图</a>
+          <a class="hover:underline" href="#changelog">更新日志</a>
+          <a class="hover:underline" href="#growth">增长趋势</a>
+          <a class="bg-white text-indigo-600 px-3 py-1 rounded-md font-medium" href="https://github.com/goldwenbo0370-afk/ai-guide" target="_blank">Github</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-4xl font-extrabold mb-4">让开源 AI 知识更易被发现与使用</h2>
+          <p class="text-lg text-gray-700 mb-6">AI Guide 是一个面向开发者与研究者的开源知识导航，聚合教程、示例、最佳实践与路线图，帮助你快速上手并持续成长。</p>
+          <div class="flex gap-3">
+            <a href="#features" class="bg-indigo-600 text-white px-5 py-3 rounded-md shadow">查看精选内容</a>
+            <a href="#roadmap" class="border border-indigo-600 text-indigo-600 px-5 py-3 rounded-md">查看路线图</a>
+          </div>
+        </div>
+        <div class="rounded-lg overflow-hidden shadow-lg bg-white p-6">
+          <h3 class="font-semibold text-xl mb-3">精选资源预览</h3>
+          <div id="cards" class="space-y-3"></div>
+        </div>
+      </section>
+
+      <section id="features" class="mt-12">
+        <h3 class="text-2xl font-bold mb-4">精选内容</h3>
+        <div id="features-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+      </section>
+
+      <section id="roadmap" class="mt-12">
+        <h3 class="text-2xl font-bold mb-4">路线图</h3>
+        <ol class="border-l-2 border-indigo-200 dark:border-indigo-700">
+          <li class="mb-8 ml-6">
+            <span class="absolute -left-3 mt-1 w-6 h-6 bg-indigo-600 rounded-full"></span>
+            <h4 class="font-semibold">阶段 1 — 内容聚合</h4>
+            <p class="text-sm text-gray-600">编写采集器，整合高质量教程、示例与论文解读。</p>
+          </li>
+          <li class="mb-8 ml-6">
+            <span class="absolute -left-3 mt-1 w-6 h-6 bg-indigo-600 rounded-full"></span>
+            <h4 class="font-semibold">阶段 2 — 可视化教学路径</h4>
+            <p class="text-sm text-gray-600">为不同背景用户生成定制化学习路线与练习项目。</p>
+          </li>
+          <li class="mb-8 ml-6">
+            <span class="absolute -left-3 mt-1 w-6 h-6 bg-indigo-600 rounded-full"></span>
+            <h4 class="font-semibold">阶段 3 — 社区与增长</h4>
+            <p class="text-sm text-gray-600">建设贡献者生态，支持投稿、讨论与榜单。</p>
+          </li>
+        </ol>
+      </section>
+
+      <section id="changelog" class="mt-12">
+        <h3 class="text-2xl font-bold mb-4">更新日志</h3>
+        <div id="changelog-list" class="space-y-4"></div>
+      </section>
+
+      <section id="growth" class="mt-12">
+        <h3 class="text-2xl font-bold mb-4">增长趋势</h3>
+        <div class="bg-white rounded-lg p-6 shadow">
+          <canvas id="growthChart" height="120"></canvas>
+        </div>
+      </section>
+
+      <section class="mt-12 text-center">
+        <p class="text-gray-600">想要为 AI Guide 做贡献？在 GitHub 上 Star、Fork 或提交 PR： <a href="https://github.com/goldwenbo0370-afk/ai-guide" class="text-indigo-600 font-medium" target="_blank">github.com/goldwenbo0370-afk/ai-guide</a></p>
+      </section>
+    </main>
+
+    <footer class="bg-white border-t mt-12">
+      <div class="container mx-auto px-6 py-6 text-sm text-gray-600 flex justify-between">
+        <div>© 2026 AI Guide · 开源知识导航</div>
+        <div class="space-x-4">
+          <a href="https://github.com/goldwenbo0370-afk" target="_blank">@goldwenbo0370-afk</a>
+          <a href="mailto:goldwenbo0370@gmail.com">联系</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Load sample data
+      async function loadData(){
+        const res = await fetch('./data.json');
+        const data = await res.json();
+        renderCards(data.highlights);
+        renderFeatures(data.features);
+        renderChangelog(data.changelog);
+        renderChart(data.growth);
+      }
+
+      function renderCards(items){
+        const el = document.getElementById('cards');
+        el.innerHTML = items.slice(0,3).map(item => `
+          <article class="p-4 bg-gray-50 rounded-md">
+            <h4 class="font-semibold">${item.title}</h4>
+            <p class="text-sm text-gray-600 mt-2">${item.excerpt}</p>
+            <a class="text-indigo-600 text-sm mt-3 inline-block" href="${item.url}" target="_blank">查看</a>
+          </article>
+        `).join('');
+      }
+
+      function renderFeatures(features){
+        const el = document.getElementById('features-grid');
+        el.innerHTML = features.map(f => `
+          <div class="bg-white p-4 rounded-lg shadow-sm">
+            <h5 class="font-semibold">${f.title}</h5>
+            <p class="text-sm text-gray-600 mt-2">${f.desc}</p>
+            <a class="text-indigo-600 text-sm mt-3 inline-block" href="${f.url}" target="_blank">阅读</a>
+          </div>
+        `).join('');
+      }
+
+      function renderChangelog(changes){
+        const el = document.getElementById('changelog-list');
+        el.innerHTML = changes.map(c => `
+          <div class="bg-white p-4 rounded-md shadow-sm">
+            <div class="flex justify-between items-center">
+              <div>
+                <div class="font-semibold">${c.title}</div>
+                <div class="text-xs text-gray-500">${c.date}</div>
+              </div>
+              <a class="text-indigo-600 text-sm" href="${c.url}" target="_blank">详情</a>
+            </div>
+            <p class="text-sm text-gray-700 mt-3">${c.summary}</p>
+          </div>
+        `).join('');
+      }
+
+      function renderChart(growth){
+        const ctx = document.getElementById('growthChart').getContext('2d');
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: growth.labels,
+            datasets: [{
+              label: '访问量（示例）',
+              data: growth.values,
+              borderColor: 'rgba(99,102,241,1)',
+              backgroundColor: 'rgba(99,102,241,0.08)',
+              tension: 0.3,
+              fill: true,
+            }]
+          },
+          options: {responsive:true, plugins:{legend:{display:false}}}
+        });
+      }
+
+      loadData().catch(err => console.error(err));
+    </script>
+  </body>
+</html>
